@@ -109,7 +109,3 @@ def chart_cons():
     return save_img
     # Saves the image when the function is called
 
-
-chart_sentiment()
-chart_unemployment()
-chart_cons()
