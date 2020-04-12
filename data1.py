@@ -1,6 +1,4 @@
 import quandl
-#from numpy import recarray
-#from pandas import DataFrame
 
 
 def get_sentiment():
@@ -19,10 +17,11 @@ def get_sentiment():
 
     final_df = sent_10_trimmed.iloc[::-1]
     # Revereses the order so the most recent data appears at the top
-
+    final_df.index = final_df.index.strftime('%m/%d/%y')
+    # Changes the date labels into a shorter format so they don't hand off the screen when they are charted
     return final_df
 
-
+get_sentiment()
 #In progress
 
 # def get_cons():
@@ -44,5 +43,8 @@ def get_unemployment():
 
     flipped = flipped.head(10)
     # Trims off all columns except for the 10 most recent
+
+    flipped.index = flipped.index.strftime('%m/%d/%y')
+    # Reformats the dates to be a shorter format
 
     return flipped
