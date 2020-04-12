@@ -5,10 +5,9 @@ import data1 as d
 import pandas as pd
 # import unzipper as uz
 import os as os
-import plots as plotter
 import plots as p
 
-
+p.chart_cons()
 app = Flask(__name__)
 Bootstrap(app)
 
@@ -22,6 +21,10 @@ def hello_world():
         return render_template('index.html')
 
         #return df3.to_html()
+
+@app.route('/short')
+def short():
+    return render_template('short.html')
 
 
 if __name__ == '__main__':
