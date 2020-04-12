@@ -3,10 +3,13 @@ from flask import Flask, render_template, url_for, request, redirect
 import data1 as d
 import pandas as pd
 # import unzipper as uz
-import os
+import os as os
 import plots as plotter
+import plots as p
+
 
 app = Flask(__name__)
+
 
 
 @app.route('/')
