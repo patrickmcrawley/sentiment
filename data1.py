@@ -21,7 +21,6 @@ def get_sentiment():
     # Changes the date labels into a shorter format so they don't hand off the screen when they are charted
     return final_df
 
-get_sentiment()
 #In progress
 
 # def get_cons():
