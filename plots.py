@@ -27,14 +27,16 @@ def chart_sentiment():
     # Adds the legend
     plt.xticks(rotation=90)
     # Rotates the date labels on the y-axis so they don't overlap
-    sentiment_chart = plt.show()
-    # Brings the chart up on the screen
-    sentiment_image = plt.savefig('aaii.jpg'), plt.show()
-    #Spits out PNG chart of plot
-    return sentiment_image
-    return sentiment_chart
-    # Has the function bring up the chart on the screen when the function is called.
+    plt.tight_layout()
+    # Resizes the window so nothing gets cut off
+    fig=plt.gcf()
+    # Gets the current figure (Must do this before the file can be saved to an image)
 
+    save_img = fig.savefig('sentiment-chart.png', dpi=100)
+    # Saves the figure to an image
+
+    return save_img
+    # Has the function bring up the chart on the screen when the function is called.
 
 
 def chart_unemployment():
@@ -55,8 +57,15 @@ def chart_unemployment():
     # Labels the Y axis
     plt.xticks(rotation=90)
     # Rotates the date labels on the X-axis so they dont overlap
-    unemployment_chart = plt.show()
-    # Brings up the chart on the screen
-    return unemployment_chart
-    # Makes it so when the function is called it puts the chart up on the screen
+
+    plt.tight_layout()
+    # Resizes the window so nothing gets cut off
+
+    fig=plt.gcf()
+    # Gets the current figure (Must do this before the file can be saved to an image)
+
+    save_img = fig.savefig('unemployment-chart.png', dpi=100)
+    # Saves the figure to an image
+    return save_img
+    # Makes it so when the function is called it saves the chart to an image.
 
