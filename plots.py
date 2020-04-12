@@ -31,6 +31,9 @@ def chart_sentiment():
     # Rotates the date labels on the y-axis so they don't overlap
     sentiment_chart = plt.show()
     # Brings the chart up on the screen
+    sentiment_image = plt.savefig('aaii.jpg'), plt.show()
+    #Spits out PNG chart of plot
+    return sentiment_image
     return sentiment_chart
     # Has the function bring up the chart on the screen when the function is called.
 
