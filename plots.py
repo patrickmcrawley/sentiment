@@ -5,8 +5,6 @@ from matplotlib import pyplot as plt
 import os as os
 
 dir = os.path.join(os.getcwd(), 'static')
-
-
 # Gets the relative file path to the /static/ directory, where all of these functions will place images
 
 def chart_sentiment():
@@ -28,7 +26,7 @@ def chart_sentiment():
     # Labels the X axis with Dates
     plt.ylabel(' ')
     # Leaves the Y axis label blank
-    plt.title('Sentiment')
+    plt.title('AAII Sentiment')
     # Titles the chart as Sentiment
     plt.legend(["Bullish", "Bearish"])
     # Adds the legend
