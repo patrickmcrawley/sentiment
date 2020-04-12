@@ -2,11 +2,9 @@ from data1 import *
 # Imports everything data1.py without having to reference it every time you call from it
 from matplotlib import pyplot as plt
 # Library for charting
-import pandas as pd
-# Library for data manipulation
 
 def chart_sentiment():
-    """Pulls data from get_sentiment and charts it"""
+    """Pulls data from get_sentiment() and charts it."""
     data = get_sentiment()
     # Uses our sentiment data for the data set
     y1 = data['Bullish']
@@ -34,11 +32,28 @@ def chart_sentiment():
     return sentiment_chart
     # Has the function bring up the chart on the screen when the function is called.
 
-# print(get_unemployment())
 
-#def chart_unemployment():
-#    data = get_unemployment()
-#    y = data['Value']
-#    x = data.index
-#    plt.plot(x, y)
+
+def chart_unemployment():
+    """Pulls data from get_unemployment() and charts it."""
+    data = get_unemployment()
+    # Grabs the unemployment dataframe
+    y = data['Value']
+    # Sets the y value to the number of new unemployment claims
+    x = data.index
+    # Sets the x value to the dates
+    plt.plot(x, y)
+    # Plots the unemployment claims to the chart
+    plt.title("# New Unemployment Claims")
+    # Titles the chart
+    plt.xlabel('Dates')
+    # Labels the xaxis
+    plt.ylabel('Claims (Million)')
+    # Labels the Y axis
+    plt.xticks(rotation=90)
+    # Rotates the date labels on the X-axis so they dont overlap
+    unemployment_chart = plt.show()
+    # Brings up the chart on the screen
+    return unemployment_chart
+    # Makes it so when the function is called it puts the chart up on the screen
 
