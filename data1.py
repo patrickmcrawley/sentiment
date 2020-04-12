@@ -15,7 +15,7 @@ def get_sentiment():
     sent_10_trimmed = sent_10[['Bullish', 'Bearish']]
     # Clips off all the columns except for Bullish and Bearish
 
-    final_df = sent_10_trimmed.iloc[::-1]
+    final_df = sent_10_trimmed.iloc[::1]
     # Revereses the order so the most recent data appears at the top
     final_df.index = final_df.index.strftime('%m/%d/%y')
     # Changes the date labels into a shorter format so they don't hand off the screen when they are charted
@@ -38,13 +38,14 @@ def get_unemployment():
     initial = quandl.get("FRED/ICNSA", authtoken="kTx7XssV5LbHw4AmPyvf")
     # Gets unemployment rate
 
-    flipped = initial.iloc[::-1]
+    flipped = initial.iloc[::1]
     # Reverses the data.
 
-    flipped = flipped.head(10)
+    flipped = flipped.tail(10)
     # Trims off all columns except for the 10 most recent
 
     flipped.index = flipped.index.strftime('%m/%d/%y')
     # Reformats the dates to be a shorter format
 
     return flipped
+

@@ -31,10 +31,10 @@ def chart_sentiment():
     # Resizes the window so nothing gets cut off
     fig=plt.gcf()
     # Gets the current figure (Must do this before the file can be saved to an image)
-
     save_img = fig.savefig('sentiment-chart.png', dpi=100)
     # Saves the figure to an image
-
+    plt.close(fig)
+    # Closes the file. This prevents plt from thinking all charts are one chart.
     return save_img
     # Has the function bring up the chart on the screen when the function is called.
 
@@ -61,11 +61,12 @@ def chart_unemployment():
     plt.tight_layout()
     # Resizes the window so nothing gets cut off
 
-    fig=plt.gcf()
+    fig2=plt.gcf()
     # Gets the current figure (Must do this before the file can be saved to an image)
 
-    save_img = fig.savefig('unemployment-chart.png', dpi=100)
+    save_img = fig2.savefig('unemployment-chart.png', dpi=100)
     # Saves the figure to an image
+    plt.close(fig2)
+    # Closes the file. This prevents plt from thinking all charts are one chart.
     return save_img
     # Makes it so when the function is called it saves the chart to an image.
-
