@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
+from flask_bootstrap import Bootstrap
 # import quandl
 import data1 as d
 import pandas as pd
@@ -9,6 +10,7 @@ import plots as p
 
 
 app = Flask(__name__)
+Bootstrap(app)
 
 
 
