@@ -14,8 +14,8 @@ def get_sentiment():
     sent_10 = sent.tail(10)
     # Grabs only the 10 newest columns
 
-    sent_10_trimmed = sent_10[['Bullish', 'Neutral']]
-    # Clips off all the columns except for Bullish and Neutral
+    sent_10_trimmed = sent_10[['Bullish', 'Bearish']]
+    # Clips off all the columns except for Bullish and Bearish
 
     final_df = sent_10_trimmed.iloc[::-1]
     # Revereses the order so the most recent data appears at the top
@@ -46,5 +46,3 @@ def get_unemployment():
     # Trims off all columns except for the 10 most recent
 
     return flipped
-
-get_unemployment()
