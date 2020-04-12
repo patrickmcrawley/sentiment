@@ -2,9 +2,11 @@ from data1 import *
 # Imports everything data1.py without having to reference it every time you call from it
 from matplotlib import pyplot as plt
 # Library for charting
+import os as os
 
 def chart_sentiment():
-    """Pulls data from get_sentiment() and charts it."""
+    """Pulls data from get_sentiment() and charts it.
+       Saves an image file in the /static/ directory"""
     data = get_sentiment()
     # Uses our sentiment data for the data set
     y1 = data['Bullish']
@@ -23,15 +25,17 @@ def chart_sentiment():
     # Leaves the Y axis label blank
     plt.title('Sentiment')
     # Titles the chart as Sentiment
-    plt.legend(["Bullish","Bearish"])
+    plt.legend(["Bullish", "Bearish"])
     # Adds the legend
     plt.xticks(rotation=90)
     # Rotates the date labels on the y-axis so they don't overlap
     plt.tight_layout()
     # Resizes the window so nothing gets cut off
-    fig=plt.gcf()
+    fig = plt.gcf()
     # Gets the current figure (Must do this before the file can be saved to an image)
-    save_img = fig.savefig('sentiment-chart.png', dpi=100)
+    dir2 = os.path.join(dir, 'sentiment-chart.png')
+    # starts creating a file path for the chart image to be stored in (/static/)
+    save_img = fig.savefig(dir2, dpi=100)
     # Saves the figure to an image
     plt.close(fig)
     # Closes the file. This prevents plt from thinking all charts are one chart.
@@ -40,7 +44,8 @@ def chart_sentiment():
 
 
 def chart_unemployment():
-    """Pulls data from get_unemployment() and charts it."""
+    """Pulls data from get_unemployment() and charts it.
+       Saves an image file in the /static/ directory"""
     data = get_unemployment()
     # Grabs the unemployment dataframe
     y = data['Value']
@@ -57,14 +62,13 @@ def chart_unemployment():
     # Labels the Y axis
     plt.xticks(rotation=90)
     # Rotates the date labels on the X-axis so they dont overlap
-
     plt.tight_layout()
     # Resizes the window so nothing gets cut off
-
-    fig2=plt.gcf()
+    fig2 = plt.gcf()
     # Gets the current figure (Must do this before the file can be saved to an image)
-
-    save_img = fig2.savefig('unemployment-chart.png', dpi=100)
+    dir2 = os.path.join(dir, 'unemployment-chart.png')
+    # Creates the file path to store the chart image file
+    save_img = fig2.savefig(dir2, dpi=100)
     # Saves the figure to an image
     plt.close(fig2)
     # Closes the file. This prevents plt from thinking all charts are one chart.
