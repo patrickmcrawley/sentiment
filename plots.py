@@ -4,6 +4,11 @@ from matplotlib import pyplot as plt
 # Library for charting
 import os as os
 
+dir = os.path.join(os.getcwd(), 'static')
+
+
+# Gets the relative file path to the /static/ directory, where all of these functions will place images
+
 def chart_sentiment():
     """Pulls data from get_sentiment() and charts it.
        Saves an image file in the /static/ directory"""
@@ -74,3 +79,37 @@ def chart_unemployment():
     # Closes the file. This prevents plt from thinking all charts are one chart.
     return save_img
     # Makes it so when the function is called it saves the chart to an image.
+
+
+def chart_cons():
+    data = get_cons()
+    # Grabs the datafram for consumer sentiment from data1.py
+    y = data['Index']
+    # Sets the Index as the Y-axis
+    x = data.index
+    # Sets the dates as the Y-axis
+    plt.plot(x, y)
+    # Plots x and Y on the chart
+    plt.title("Consumer Sentiment")
+    # Gives the chart a title
+    plt.ylabel("Index Value")
+    # Gives the chart a Y label
+    plt.xticks(rotation=90)
+    # Rotates the date labels on the X axis so they don't overlap
+    plt.tight_layout()
+    # Resizes the chart window so nothing gets cut off
+    fig3 = plt.gcf()
+    # Gets the current figures. Must be done before saving the chart or it will come out blank.
+    dir2 = os.path.join(dir, 'cons-chart.png')
+    # Creates the full path to the /static/ directory where the file will be placed
+    save_img = fig3.savefig(dir2, dpi=100)
+    # Saves the image to the /static/ folder
+    plt.close(fig3)
+    # Closes plt so chart creations don't overlap and mix together
+    return save_img
+    # Saves the image when the function is called
+
+
+chart_sentiment()
+chart_unemployment()
+chart_cons()
