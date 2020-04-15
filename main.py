@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 # import quandl
 import data1 as d
 import pandas as pd
@@ -10,8 +11,15 @@ import plots as p
 p.chart_cons()
 app = Flask(__name__)
 Bootstrap(app)
+db = SQLAlchemy(app)
 
+db_path = os.path.join(os.path.dirname(__file__), 'SP500.db')
+db_uri = 'sqlite:///{}'.format(db_path)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
+class sandp(db.Model):
+    id = db.Column(db.String(5), primary_key=True)
+    shortvol = db.Column(db.Integer())
 
 @app.route('/')
 def hello_world():
