@@ -7,19 +7,18 @@ import pandas as pd
 # import unzipper as uz
 import os as os
 import plots as p
+import sqlite3
+import sint as s
+
+db = sqlite3.connect('SP500.db')
+#Connects the db to the python file
+df = pd.read_sql_query('''SELECT * FROM sp500 ORDER BY Value DESC LIMIT 20''', db)
+#Creates dataframe of top 20 most shorted in SP500.db
 
 p.chart_cons()
 app = Flask(__name__)
 Bootstrap(app)
 db = SQLAlchemy(app)
-
-db_path = os.path.join(os.path.dirname(__file__), 'SP500.db')
-db_uri = 'sqlite:///{}'.format(db_path)
-app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-
-class sandp(db.Model):
-    id = db.Column(db.String(5), primary_key=True)
-    shortvol = db.Column(db.Integer())
 
 @app.route('/')
 def hello_world():
@@ -32,8 +31,9 @@ def hello_world():
 
 @app.route('/short')
 def short():
-    return render_template('short.html')
+    #return df.to_html()
+    return render_template('short.html', tables=[df.to_html(classes=["table-bordered", "table-striped", "table-hover"], header="true")], titles='tickers')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
