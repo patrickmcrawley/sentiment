@@ -12,4 +12,3 @@ def get_sp500():
     return list
 
 
-pprint(get_sp500())

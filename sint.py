@@ -61,8 +61,6 @@ def create_db():
 
 def SP500_DF():
     """Replaces the sp500 database with a new version with the most updated values"""
-    delete_sp500_db()
-    create_db()
     # Deletes the database so it can be re-populated with the newest values
     conn = sqlite3.connect('SP500.db')
     # Connects to our database
@@ -104,5 +102,3 @@ def delete_sp500_db():
     os.remove('SP500.db')
     return print('sp500.db deleted.')
 
-SP500_DF()
-print(read_from_sp500_db())
