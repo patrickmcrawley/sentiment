@@ -7,29 +7,33 @@
 {% include './navbar.html' %}
 {% block test %}
     <h1>Pat and Ryan's Sentiment Thin Slice</h1>
-    <div class="row">
-        <div class="column">
-            <div class="card" style="width: 25rem;, height: 25rem;">
-            <img src="../static/sentiment-chart.png" class="card-img-top" alt="chart">
-            <div class="card-body">
-                <p class="card-text">AAII Sentiment</p>
-                </div>
-            </div>
-        </div>
-                <div class="card" style="width: 25rem;,height: 25rem;">
-                <img src="../static/unemployment-chart.png" class="card-img-top" alt="chart">
-                <div class="card-body">
-                    <p class="card-text">Weekly Initial Jobless Claims</p>
-                </div>
-                </div>
-            <div class="card" style="width: 25rem;, height: 25rem;">
-            <img src="../static/cons-chart.png"
-             <div class="card-body">
-                 <p class="card-text">Consumer Sentiment</p>
-             </div>
-             </div>
-            </div>
-
-    {% endblock %}
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="../static/sentiment-chart.png" alt="AAII Sentiment">
+    <div class="card-body">
+      <h5 class="card-title">AAII Sentiment</h5>
+      <p class="card-text">Since 1987, AAII members have been answering the same simple question each week. The results are compiled into the AAII Investor Sentiment Survey,
+which offers insight into the mood of individual investors.</p>
+      <p class="card-text"><small class="text-muted">Source: Quandl (AAII Investor Sentiment Data)</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../static/unemployment-chart.png" alt="Initial Jobless Claims">
+    <div class="card-body">
+      <h5 class="card-title">Initial Jobless Claims</h5>
+      <p class="card-text">Tracks the number unemployment insurance filings nationwide.</p>
+      <p class="card-text"><small class="text-muted">Source: Quandl (Federal Reserve Economic Data)</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../static/cons-chart.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Consumer Sentiment</h5>
+      <p class="card-text">A monthly survey of US consumer confidence conducted by the University of Michigan. Compiled using telephone surveys.</p>
+      <p class="card-text"><small class="text-muted">Source: Quandl (Consumer Sentiment)</small></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
 </body>
 </html>
