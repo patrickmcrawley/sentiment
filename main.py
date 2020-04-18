@@ -8,17 +8,15 @@ import pandas as pd
 import os as os
 import plots as p
 import sqlite3
-import sint as s
 
 db = sqlite3.connect('SP500.db')
 #Connects the db to the python file
 df = pd.read_sql_query('''SELECT * FROM sp500 ORDER BY Value DESC LIMIT 20''', db)
 #Creates dataframe of top 20 most shorted in SP500.db
-
-p.chart_cons()
+db.close()
 app = Flask(__name__)
 Bootstrap(app)
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
