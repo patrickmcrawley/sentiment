@@ -10,6 +10,13 @@ h1 {
     color: blue;
     text-align: center;
 }
+
+h3  {
+    color:gray;
+    text-align: center;
+    font-style: italic;
+}
+
 .card-deck {
     margin-right: auto;
     margin-left: auto;
