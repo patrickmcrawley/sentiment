@@ -78,6 +78,13 @@ def share_values():
         result = c.fetchall()
         return result
 
+def read_share_values():
+    with sqlite3.connect('SP500.db') as conn:
+
+        df = pd.read_sql("""SELECT * FROM key_stats ORDER BY tickers ASC""", conn)
+        df['short_percent'] = df['short_interest'] / df['float']
+        return df
+
 
 
 
