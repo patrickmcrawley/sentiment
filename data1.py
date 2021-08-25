@@ -3,8 +3,8 @@ import quandl
 
 def get_sentiment():
     """Grabs the cleaned up sentiment Dataframe"""
-    quandl.ApiConfig.api_key = 'kTx7XssV5LbHw4AmPyvf'
-    sent = quandl.get("AAII/AAII_SENTIMENT", authtoken="kTx7XssV5LbHw4AmPyvf")
+    quandl.ApiConfig.api_key = 'API_KEY'
+    sent = quandl.get("AAII/AAII_SENTIMENT", authtoken="API_KEY")
     # Grabs the dataframe from Quandl
     sent_10 = sent.tail(10)
     # Grabs only the 10 newest columns
@@ -19,7 +19,7 @@ def get_sentiment():
 
 def get_unemployment():
     """ Returns a table of recent new jobless claims"""
-    initial = quandl.get("FRED/ICNSA", authtoken="kTx7XssV5LbHw4AmPyvf")
+    initial = quandl.get("FRED/ICNSA", authtoken="API_KEY")
     # Gets unemployment rate
     flipped = initial.iloc[::1]
     # Reverses the data.
@@ -31,7 +31,7 @@ def get_unemployment():
 
 def get_cons():
     """ Returns a dataframe of consumer sentiment """
-    get = quandl.get("UMICH/SOC1", authtoken="kTx7XssV5LbHw4AmPyvf")
+    get = quandl.get("UMICH/SOC1", authtoken="API_KEY")
     # Gets the consumer sentiment data from the Quandl API
     recent_10 = get.tail(10)
     # Gets the 10 most recent pieces of data and trims the excess
